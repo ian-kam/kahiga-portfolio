@@ -1,0 +1,98 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  }
+
+body {
+background: #080b09;
+color: #e6f0e9;
+font-family: Consolas, "Courier New", monospace;
+min-height: 100vh;
+padding: 40px 8%;
+}
+
+header {
+display: flex;
+justify-content: space-between;
+align-items: center;
+flex-wrap: wrap;
+gap: 15px;
+padding-bottom: 25px;
+border-bottom: 1px solid #24372b;
+}
+
+.logo {
+color: #39ff88;
+font-size: 22px;
+font-weight: bold;
+}
+
+.status {
+color: #39ff88;
+font-size: 12px;
+}
+
+main {
+max-width: 850px;
+margin: 100px auto;
+}
+
+.tagline {
+color: #39ff88;
+font-size: 13px;
+letter-spacing: 3px;
+margin-bottom: 25px;
+}
+
+h1 {
+font-size: clamp(36px, 7vw, 68px);
+line-height: 1.15;
+margin-bottom: 25px;
+}
+
+h1 span {
+color: #39ff88;
+}
+
+.description {
+color: #a3b2a7;
+font-family: Arial, sans-serif;
+font-size: 17px;
+line-height: 1.8;
+max-width: 600px;
+}
+
+.button {
+display: inline-block;
+margin-top: 30px;
+padding: 14px 22px;
+border: 1px solid #39ff88;
+color: #39ff88;
+text-decoration: none;
+}
+
+.button:hover {
+background: #39ff88;
+color: #080b09;
+}
+
+.terminal {
+margin-top: 55px;
+padding: 25px;
+border: 1px solid #24372b;
+background: #0d130f;
+line-height: 2;
+overflow-wrap: anywhere;
+}
+
+.green {
+color: #39ff88;
+}
+
+footer {
+border-top: 1px solid #24372b;
+padding-top: 25px;
+color: #7f9184;
+font-size: 12px;
+}
