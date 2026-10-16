@@ -3,67 +3,87 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Kahiga | My Projects</title>
+  <meta name="theme-color" content="#080d0b">
+  <meta name="description" content="Kahiga's Computer Science portfolio: C programming, Linux, and cybersecurity learning projects.">
+  <title>Kahiga | CS Portfolio</title>
   <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
 </head>
 <body>
+  <canvas id="matrix-canvas" aria-hidden="true"></canvas>
+  <div class="site-shell">
+    <header class="site-header">
+      <a class="logo" href="index.html" aria-label="Kahiga home">KAHIGA<span class="green">_DEV</span></a>
+      <div class="status"><span class="status-dot"></span> COMPUTER SCIENCE STUDENT</div>
+    </header>
 
-  <header>
-    <div class="logo">KAHIGA<span class="green">_DEV</span></div>
-    <div class="status">● MY PROJECTS</div>
-  </header>
-
-  <main>
-    <p class="tagline">01 / MY WORK</p>
-    <h1>My <span>Projects.</span></h1>
-
-    <p class="description">
-      Here are some of the projects I have built
-      and the skills I am developing along the way.
-    </p>
-
-    <div class="project-card">
-      <p class="project-number">PROJECT_001</p>
-      <h3>Student Marks Calculator</h3>
-      <p>A C program for calculating student totals and averages.</p>
-      <span class="chip">C PROGRAMMING</span>
-    </div>
-
-    <div class="project-card">
-      <p class="project-number">PROJECT_002</p>
-      <h3>Kali Linux Learning Lab</h3>
-      <p>Documenting Linux commands and authorized security exercises.</p>
-      <span class="chip">LINUX</span>
-    </div>
-
-    <div class="project-card">
-      <p class="project-number">PROJECT_003</p>
-      <h3>Terminal Security Simulator</h3>
-      <p>
-        A C program featuring PIN-based login, a three-attempt
-        limit, a terminal menu, and a simulated network scan.
+    <main id="home" class="hero">
+      <p class="tagline">PROGRAMMING / LINUX / CYBERSECURITY</p>
+      <h1><span id="typed-headline">Building the future,</span><br><span class="headline-second">one line at a time.</span><span class="cursor" aria-hidden="true">▋</span></h1>
+      <p class="description">
+        I'm Kahiga, a Computer Science student learning C programming,
+        Linux, and cybersecurity. This is my journey from beginner to developer.
       </p>
-      <span class="chip">C PROGRAMMING</span>
-      <br><br>
-      <a
-        href="https://github.com/ian-kam/terminal-security-simulation"
-        class="button"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        View Source Code →
-      </a>
-    </div>
+      <a href="projects.html" class="button">Explore my projects <span aria-hidden="true">→</span></a>
 
-    <p>
-      <a href="index.html" class="button">← Back to Home</a>
-    </p>
-  </main>
+      <section class="terminal-panel" aria-label="Terminal introduction">
+        <div class="terminal-top"><span></span><span></span><span></span><p>kahiga@kali: ~</p></div>
+        <div class="terminal-content">
+          <p><span class="green">kahiga@kali</span>:~$ whoami</p>
+          <p>Computer Science student</p>
+          <p><span class="green">kahiga@kali</span>:~$ skills</p>
+          <p>C programming · Linux · Problem solving</p>
+          <p><span class="green">kahiga@kali</span>:~$ <span class="green">█</span></p>
+        </div>
+      </section>
+    </main>
 
-  <footer>
-    <p>Designed &amp; built by Kahiga.</p>
-    <p>Learning. Building. Improving.</p>
-  </footer>
+    <section id="skills" class="section">
+      <p class="tagline">02 / CURRENT TOOLKIT</p>
+      <h2>Skills in progress<span class="green">.</span></h2>
+      <p class="section-intro">These bars represent my current learning focus—not formal certifications.</p>
+      <div class="skills-grid">
+        <article class="skill-card">
+          <div class="skill-heading"><h3>C Programming</h3><span>Beginner</span></div>
+          <div class="skill-track"><div class="skill-fill" data-level="45"></div></div>
+          <p>Variables, conditions, loops, functions, and problem solving.</p>
+        </article>
+        <article class="skill-card">
+          <div class="skill-heading"><h3>Linux</h3><span>Learning</span></div>
+          <div class="skill-track"><div class="skill-fill" data-level="55"></div></div>
+          <p>Command line, files, packages, permissions, and Kali Linux setup.</p>
+        </article>
+        <article class="skill-card">
+          <div class="skill-heading"><h3>Cybersecurity</h3><span>Foundations</span></div>
+          <div class="skill-track"><div class="skill-fill" data-level="25"></div></div>
+          <p>Learning networking and safe, authorized security labs.</p>
+        </article>
+      </div>
+    </section>
 
+    <section id="terminal-lab" class="section">
+      <p class="tagline">03 / INTERACTIVE LAB</p>
+      <h2>Try the terminal<span class="green">.</span></h2>
+      <p class="section-intro">This is a safe portfolio demo, not a real operating-system terminal. Type <code>help</code> to see commands.</p>
+      <div class="interactive-terminal">
+        <div class="terminal-top"><span></span><span></span><span></span><p>visitor@kahiga-portfolio: ~</p></div>
+        <div id="terminal-output" class="terminal-output" role="log" aria-live="polite">
+          <p>Welcome, visitor. Type <span class="green">help</span> to get started.</p>
+        </div>
+        <form id="terminal-form" class="terminal-input-row" autocomplete="off">
+          <label for="terminal-input"><span class="green">visitor@kahiga</span>:~$</label>
+          <input id="terminal-input" name="command" type="text" spellcheck="false" autocapitalize="off" placeholder="type a command..." aria-label="Terminal command">
+          <button type="submit" class="terminal-submit">Run</button>
+        </form>
+      </div>
+      <p class="terminal-hint">Available commands: help, about, skills, projects, date, clear</p>
+    </section>
+
+    <footer class="site-footer">
+      <p>Designed &amp; built by Kahiga.</p>
+      <p>Learning. Building. Improving.</p>
+      <a href="https://github.com/ian-kam" target="_blank" rel="noopener noreferrer">GitHub profile ↗</a>
+    </footer>
+  </div>
 </body>
 </html>
