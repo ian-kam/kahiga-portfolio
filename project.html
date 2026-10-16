@@ -3,59 +3,55 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Kahiga | My Projects</title>
+  <meta name="theme-color" content="#080d0b">
+  <title>Kahiga | Projects</title>
   <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
 </head>
 <body>
+  <canvas id="matrix-canvas" aria-hidden="true"></canvas>
+  <div class="site-shell">
+    <header class="site-header">
+      <a class="logo" href="index.html">KAHIGA<span class="green">_DEV</span></a>
+      <div class="status"><span class="status-dot"></span> MY PROJECTS</div>
+    </header>
 
-  <header>
-    <div class="logo">KAHIGA<span class="green">_DEV</span></div>
-    <div class="status">● MY PROJECTS</div>
-  </header>
+    <main class="section projects-page">
+      <p class="tagline">01 / SELECTED WORK</p>
+      <h1>My projects<span class="green">.</span></h1>
+      <p class="description">Small projects and learning labs as I build my skills in programming, Linux, and cybersecurity.</p>
 
-  <main>
-    <p class="tagline">01 / MY WORK</p>
-    <h1>My <span>Projects.</span></h1>
+      <div class="projects-grid">
+        <article class="project-card">
+          <p class="project-number">PROJECT_001</p>
+          <h2>Student Marks Calculator</h2>
+          <p>A C program for calculating student totals and averages.</p>
+          <span class="chip">C PROGRAMMING</span>
+        </article>
 
-    <p class="description">
-      Here are the projects I'm building while learning
-      programming, Linux, and cybersecurity.
-    </p>
+        <article class="project-card">
+          <p class="project-number">PROJECT_002</p>
+          <h2>Kali Linux Learning Lab</h2>
+          <p>Documenting Linux commands and authorized security exercises.</p>
+          <span class="chip">LINUX</span>
+        </article>
 
-    <div class="project-card">
-      <p class="project-number">PROJECT_001</p>
-      <h3>Student Marks Calculator</h3>
-      <p>A C program for calculating student totals and averages.</p>
-      <span class="chip">C PROGRAMMING</span>
-    </div>
+        <article class="project-card">
+          <p class="project-number">PROJECT_003</p>
+          <h2>Terminal Security Simulator</h2>
+          <p>A C program featuring PIN-based login, a three-attempt limit, a terminal menu, and a simulated network scan.</p>
+          <span class="chip">C PROGRAMMING</span>
+          <a href="https://github.com/ian-kam/terminal-security-simulation" class="button project-link" target="_blank" rel="noopener noreferrer">View source code ↗</a>
+        </article>
+      </div>
+      <p class="back-home"><a href="index.html" class="button">← Back to home</a></p>
+    </main>
 
-    <div class="project-card">
-      <p class="project-number">PROJECT_002</p>
-      <h3>Kali Linux Learning Lab</h3>
-      <p>Documenting Linux commands and authorized security exercises.</p>
-      <span class="chip">LINUX</span>
-    </div>
-
-    <div class="project-card">
-      <p class="project-number">PROJECT_003</p>
-      <h3>Terminal Security Simulator</h3>
-      <p>A C program with PIN login, a three-attempt limit,
-      a terminal menu, and a simulated network scan.</p>
-      <span class="chip">C PROGRAMMING</span>
-      <br><br>
-      <a href="https://github.com/ian-kam/terminal-security-simulation"
-         class="button" target="_blank" rel="noopener noreferrer">
-        View Source Code →
-      </a>
-    </div>
-
-    <p><a href="index.html" class="button">← Back to Home</a></p>
-  </main>
-
-  <footer>
-    <p>Designed &amp; built by Kahiga.</p>
-    <p>Learning. Building. Improving.</p>
-  </footer>
-
+    <footer class="site-footer">
+      <p>Designed &amp; built by Kahiga.</p>
+      <p>Learning. Building. Improving.</p>
+      <a href="https://github.com/ian-kam" target="_blank" rel="noopener noreferrer">GitHub profile ↗</a>
+    </footer>
+  </div>
 </body>
 </html>
