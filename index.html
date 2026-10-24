@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <script src="https://cdn.auth0.com/js/auth0-spa-js/2.18/auth0-spa-js.production.js"></script>
   <script src="https://cdn.logr-in.com/LogRocket.min.js" crossorigin="anonymous"></script>
 <script>window.LogRocket && window.LogRocket.init('dmwmkp/portfolio-website');</script>
   <meta charset="UTF-8">
@@ -12,6 +13,10 @@
   <script src="script.js" defer></script>
 </head>
 <body>
+  <div id="view-unauthenticated" hidden>
+  <button onclick="client.loginWithRedirect({authorizationParams:{screen_hint:'signup'}})">Signup</button>
+  <button onclick="client.loginWithRedirect()">Login</button>
+</div>
   <canvas id="matrix-canvas" aria-hidden="true"></canvas>
   <div class="site-shell">
     <header class="site-header">
