@@ -2,6 +2,39 @@
 <html lang="en">
 <head>
   <script src="https://cdn.auth0.com/js/auth0-spa-js/2.18/auth0-spa-js.production.js"></script>
+  <script>
+  let client;
+
+  async function initAuth() {
+    client = await auth0.createAuth0Client({
+      domain: "dev-11fca33oqj6eygse.us.auth0.com",
+      clientId: "8Td8hxAWxJHs1nYhtSfhfCaKEwmxYH24",
+      authorizationParams: {
+        redirect_uri: window.location.origin + "/kahiga-portfolio/"
+      }
+    });
+
+    // Handle the return from Auth0 after login
+    if (window.location.search.includes("code=") &&
+        window.location.search.includes("state=")) {
+      await client.handleRedirectCallback();
+      window.history.replaceState({}, document.title, window.location.pathname);
+    }
+
+    document.getElementById("view-unauthenticated").hidden =
+      await client.isAuthenticated();
+
+    document.getElementById("login-button").onclick = () =>
+      client.loginWithRedirect();
+
+    document.getElementById("signup-button").onclick = () =>
+      client.loginWithRedirect({
+        authorizationParams: { screen_hint: "signup" }
+      });
+  }
+
+  initAuth().catch(console.error);
+</script>
   <script src="https://cdn.logr-in.com/LogRocket.min.js" crossorigin="anonymous"></script>
 <script>window.LogRocket && window.LogRocket.init('dmwmkp/portfolio-website');</script>
   <meta charset="UTF-8">
