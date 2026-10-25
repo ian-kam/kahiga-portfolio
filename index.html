@@ -1,73 +1,74 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <script src="https://cdn.auth0.com/js/auth0-spa-js/2.18/auth0-spa-js.production.js"></script>
-  <script>
-  let client;
-
-  async function initAuth() {
-    client = await auth0.createAuth0Client({
-      domain: "dev-11fca33oqj6eygse.us.auth0.com",
-      clientId: "8Td8hxAWxJHs1nYhtSfhfCaKEwmxYH24",
-      authorizationParams: {
-        redirect_uri: window.location.origin + "/kahiga-portfolio/"
-      }
-    });
-
-    // Handle the return from Auth0 after login
-    if (window.location.search.includes("code=") &&
-        window.location.search.includes("state=")) {
-      await client.handleRedirectCallback();
-      window.history.replaceState({}, document.title, window.location.pathname);
-    }
-
-    document.getElementById("view-unauthenticated").hidden =
-      await client.isAuthenticated();
-
-    document.getElementById("login-button").onclick = () =>
-      client.loginWithRedirect();
-
-    document.getElementById("signup-button").onclick = () =>
-      client.loginWithRedirect({
-        authorizationParams: { screen_hint: "signup" }
-      });
-  }
-
-  initAuth().catch(console.error);
-</script>
-  <script src="https://cdn.logr-in.com/LogRocket.min.js" crossorigin="anonymous"></script>
-<script>window.LogRocket && window.LogRocket.init('dmwmkp/portfolio-website');</script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="theme-color" content="#080d0b">
   <meta name="description" content="Kahiga's Computer Science portfolio: C programming, Linux, and cybersecurity learning projects.">
+
   <title>Kahiga | CS Portfolio</title>
+
   <link rel="stylesheet" href="style.css">
   <script src="script.js" defer></script>
+
+  <script src="https://cdn.logr-in.com/LogRocket.min.js" crossorigin="anonymous"></script>
+  <script>
+    window.LogRocket && window.LogRocket.init('dmwmkp/portfolio-website');
+  </script>
 </head>
+
 <body>
-  <div id="view-unauthenticated" hidden>
-  <button onclick="client.loginWithRedirect({authorizationParams:{screen_hint:'signup'}})">Signup</button>
-  <button onclick="client.loginWithRedirect()">Login</button>
-</div>
   <canvas id="matrix-canvas" aria-hidden="true"></canvas>
+
   <div class="site-shell">
     <header class="site-header">
-      <a class="logo" href="index.html" aria-label="Kahiga home">KAHIGA<span class="green">_DEV</span></a>
-      <div class="status"><span class="status-dot"></span> COMPUTER SCIENCE STUDENT</div>
+      <a class="logo" href="index.html" aria-label="Kahiga home">
+        KAHIGA<span class="green">_DEV</span>
+      </a>
+
+      <div class="status">
+        <span class="status-dot"></span>
+        COMPUTER SCIENCE STUDENT
+      </div>
+
+      <!-- Auth0 login and signup controls -->
+      <div id="view-unauthenticated">
+        <button type="button" id="login-button" class="button">Log In</button>
+        <button type="button" id="signup-button" class="button">Sign Up</button>
+      </div>
+
+      <!-- Shown after successful login -->
+      <div id="view-authenticated" hidden>
+        <span id="user-greeting"></span>
+        <button type="button" id="logout-button" class="button">Log Out</button>
+      </div>
     </header>
 
     <main id="home" class="hero">
       <p class="tagline">PROGRAMMING / LINUX / CYBERSECURITY</p>
-      <h1><span id="typed-headline">Building the future,</span><br><span class="headline-second">one line at a time.</span><span class="cursor" aria-hidden="true">▋</span></h1>
+
+      <h1>
+        <span id="typed-headline">Building the future,</span><br>
+        <span class="headline-second">one line at a time.</span>
+        <span class="cursor" aria-hidden="true">▋</span>
+      </h1>
+
       <p class="description">
         I'm Kahiga, a Computer Science student learning C programming,
         Linux, and cybersecurity. This is my journey from beginner to developer.
       </p>
-      <a href="projects.html" class="button">Explore my projects <span aria-hidden="true">→</span></a>
+
+      <a href="projects.html" class="button">
+        Explore my projects <span aria-hidden="true">→</span>
+      </a>
 
       <section class="terminal-panel" aria-label="Terminal introduction">
-        <div class="terminal-top"><span></span><span></span><span></span><p>kahiga@kali: ~</p></div>
+        <div class="terminal-top">
+          <span></span><span></span><span></span>
+          <p>kahiga@kali: ~</p>
+        </div>
+
         <div class="terminal-content">
           <p><span class="green">kahiga@kali</span>:~$ whoami</p>
           <p>Computer Science student</p>
@@ -81,21 +82,41 @@
     <section id="skills" class="section">
       <p class="tagline">02 / CURRENT TOOLKIT</p>
       <h2>Skills in progress<span class="green">.</span></h2>
-      <p class="section-intro">These bars represent my current learning focus—not formal certifications.</p>
+      <p class="section-intro">
+        These bars represent my current learning focus—not formal certifications.
+      </p>
+
       <div class="skills-grid">
         <article class="skill-card">
-          <div class="skill-heading"><h3>C Programming</h3><span>Beginner</span></div>
-          <div class="skill-track"><div class="skill-fill" data-level="45"></div></div>
+          <div class="skill-heading">
+            <h3>C Programming</h3>
+            <span>Beginner</span>
+          </div>
+          <div class="skill-track">
+            <div class="skill-fill" data-level="45"></div>
+          </div>
           <p>Variables, conditions, loops, functions, and problem solving.</p>
         </article>
+
         <article class="skill-card">
-          <div class="skill-heading"><h3>Linux</h3><span>Learning</span></div>
-          <div class="skill-track"><div class="skill-fill" data-level="55"></div></div>
+          <div class="skill-heading">
+            <h3>Linux</h3>
+            <span>Learning</span>
+          </div>
+          <div class="skill-track">
+            <div class="skill-fill" data-level="55"></div>
+          </div>
           <p>Command line, files, packages, permissions, and Kali Linux setup.</p>
         </article>
+
         <article class="skill-card">
-          <div class="skill-heading"><h3>Cybersecurity</h3><span>Foundations</span></div>
-          <div class="skill-track"><div class="skill-fill" data-level="25"></div></div>
+          <div class="skill-heading">
+            <h3>Cybersecurity</h3>
+            <span>Foundations</span>
+          </div>
+          <div class="skill-track">
+            <div class="skill-fill" data-level="25"></div>
+          </div>
           <p>Learning networking and safe, authorized security labs.</p>
         </article>
       </div>
@@ -104,26 +125,125 @@
     <section id="terminal-lab" class="section">
       <p class="tagline">03 / INTERACTIVE LAB</p>
       <h2>Try the terminal<span class="green">.</span></h2>
-      <p class="section-intro">This is a safe portfolio demo, not a real operating_system_terminal. Type <code>help</code> to see commands.</p>
+      <p class="section-intro">
+        This is a safe portfolio demo, not a real operating system terminal.
+        Type <code>help</code> to see commands.
+      </p>
+
       <div class="interactive-terminal">
-        <div class="terminal-top"><span></span><span></span><span></span><p>visitor@kahiga-portfolio: ~</p></div>
+        <div class="terminal-top">
+          <span></span><span></span><span></span>
+          <p>visitor@kahiga-portfolio: ~</p>
+        </div>
+
         <div id="terminal-output" class="terminal-output" role="log" aria-live="polite">
           <p>Welcome, visitor. Type <span class="green">help</span> to get started.</p>
         </div>
+
         <form id="terminal-form" class="terminal-input-row" autocomplete="off">
-          <label for="terminal-input"><span class="green">visitor@kahiga</span>:~$</label>
-          <input id="terminal-input" name="command" type="text" spellcheck="false" autocapitalize="off" placeholder="type a command..." aria-label="Terminal command">
+          <label for="terminal-input">
+            <span class="green">visitor@kahiga</span>:~$
+          </label>
+          <input
+            id="terminal-input"
+            name="command"
+            type="text"
+            spellcheck="false"
+            autocapitalize="off"
+            placeholder="type a command..."
+            aria-label="Terminal command"
+          >
           <button type="submit" class="terminal-submit">Run</button>
         </form>
       </div>
-      <p class="terminal-hint">Available commands: help, about, skills, projects, date, clear</p>
+
+      <p class="terminal-hint">
+        Available commands: help, about, skills, projects, date, clear
+      </p>
     </section>
 
     <footer class="site-footer">
       <p>Designed &amp; built by Kahiga.</p>
       <p>Learning. Building. Improving.</p>
-      <a href="https://github.com/ian-kam" target="_blank" rel="noopener noreferrer">GitHub profile ↗</a>
+      <a href="https://github.com/ian-kam" target="_blank" rel="noopener noreferrer">
+        GitHub profile ↗
+      </a>
     </footer>
   </div>
+
+  <!-- Load the official Auth0 SDK before initializing it -->
+  <script src="https://cdn.auth0.com/js/auth0-spa-js/2.18/auth0-spa-js.production.js"></script>
+
+  <script>
+    let authClient;
+
+    async function initAuth() {
+      const loginView = document.getElementById("view-unauthenticated");
+      const userView = document.getElementById("view-authenticated");
+      const greeting = document.getElementById("user-greeting");
+
+      authClient = await auth0.createAuth0Client({
+        domain: "dev-11fca33oqj6eygse.us.auth0.com",
+        clientId: "8Td8hxAWxJHs1nYhtSfhfCaKEwmxYH24",
+        authorizationParams: {
+          redirect_uri: "https://ian-kam.github.io/kahiga-portfolio/"
+        }
+      });
+
+      // Process the response after returning from Auth0.
+      if (
+        window.location.search.includes("code=") &&
+        window.location.search.includes("state=")
+      ) {
+        await authClient.handleRedirectCallback();
+        window.history.replaceState(
+          {},
+          document.title,
+          window.location.pathname
+        );
+      }
+
+      async function updateAuthView() {
+        const loggedIn = await authClient.isAuthenticated();
+
+        loginView.hidden = loggedIn;
+        userView.hidden = !loggedIn;
+
+        if (loggedIn) {
+          const user = await authClient.getUser();
+          greeting.textContent = user?.name
+            ? `Hello, ${user.name}`
+            : "You're logged in";
+        }
+      }
+
+      document.getElementById("login-button").addEventListener("click", () => {
+        authClient.loginWithRedirect();
+      });
+
+      document.getElementById("signup-button").addEventListener("click", () => {
+        authClient.loginWithRedirect({
+          authorizationParams: {
+            screen_hint: "signup"
+          }
+        });
+      });
+
+      document.getElementById("logout-button").addEventListener("click", () => {
+        authClient.logout({
+          logoutParams: {
+            returnTo: "https://ian-kam.github.io/kahiga-portfolio/"
+          }
+        });
+      });
+
+      await updateAuthView();
+    }
+
+    initAuth().catch((error) => {
+      console.error("Auth0 initialization failed:", error);
+    });
+  </script>
 </body>
 </html>
+```
